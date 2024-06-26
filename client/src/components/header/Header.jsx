@@ -7,12 +7,12 @@ const Header = () => {
             <nav>
                 <Link to="/games">All games</Link>
                 <div id="user">
-                    <Link to="#">Create Game</Link>
+                    <Link to="/games/create">Create Game</Link>
                     <Link to="#">Logout</Link>
                 </div>
                 <div id="guest">
-                    <Link to="#">Login</Link>
-                    <Link to="#">Register</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
                 </div>
             </nav>
         </header>
