@@ -9,3 +9,10 @@ export async function createGame(data) {
         body: JSON.stringify(data)
     })
 }
+
+export async function getGames() {
+    const response = await fetch(`${baseUrl}/games`)
+    const result = response.json()
+
+    return result
+}
