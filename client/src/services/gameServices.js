@@ -16,3 +16,10 @@ export async function getGames() {
 
     return result
 }
+
+export async function getGame(gameId) {
+    const response = await fetch(`${baseUrl}/games/${gameId}`)
+    const result = response.json()
+
+    return result
+}

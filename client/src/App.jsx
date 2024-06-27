@@ -5,6 +5,7 @@ import HomePage from './components/homePage/HomePage'
 import { Routes, Route } from 'react-router-dom'
 import Login from './components/login/Login';
 import Register from './components/register/Register'
+import GameDetails from './components/gameDetails/GameDetails';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 				<Route path='/games/create' element={<GameCreate />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/register' element={<Register />} />
+				<Route path='/games/:id' element={<GameDetails />} />
 			</Routes>
 
 			
