@@ -1,8 +1,18 @@
+import { createGame } from "../../services/gameServices"
+
 const GameCreate = () => {
+
+    const createGameHandler = async (e) => {
+        e.preventDefault()
+        
+        const gameData = Object.fromEntries(new FormData(e.currentTarget))
+        const result = await createGame(gameData)
+    }
+
     return (
         // <!-- Create Page ( Only for logged-in users ) -->
         <section id="create-page" className="auth">
-            <form id="create">
+            <form id="create" onSubmit={createGameHandler}>
                 <div className="container">
                     <h1>Create Game</h1>
                     <label htmlFor="leg-title">Legendary title:</label>
