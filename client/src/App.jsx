@@ -8,12 +8,14 @@ import Register from './components/register/Register'
 import GameDetails from './components/gameDetails/GameDetails';
 import { useState } from 'react';
 import { AuthContext } from './contexts/authContext';
+import { login } from './services/authServices';
 
 function App() {
 	const [auth, setAuth] = useState({})
 
-	const loginSubmitHandler = (values) => {
-		console.log(values)
+	const loginSubmitHandler = async (values) => {
+		let result = await login(values)
+		setAuth(result)
 	}
 
 	return (
