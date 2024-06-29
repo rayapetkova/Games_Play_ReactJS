@@ -1,5 +1,7 @@
-const Login = () => {
-    const [values, onChange, onSubmit] = useForm({
+import useForm from '../../hooks/useForm'
+
+const Login = ({loginSubmitHandler}) => {
+    const [values, onChange, onSubmit] = useForm(loginSubmitHandler, {
         email: '',
         password: ''
     })
@@ -7,12 +9,12 @@ const Login = () => {
     return (
         // <!-- Login Page ( Only for Guest users ) -->
         <section id="login-page" className="auth">
-            <form id="login">
+            <form id="login" onSubmit={onSubmit}>
 
                 <div className="container">
                     <div className="brand-logo"></div>
                     <h1>Login</h1>
-                    <label for="email">Email:</label>
+                    <label htmlFor="email">Email:</label>
                     <input 
                         type="email" 
                         id="email" 
@@ -22,7 +24,7 @@ const Login = () => {
                         placeholder="Sokka@gmail.com" 
                     />
 
-                    <label for="login-pass">Password:</label>
+                    <label htmlFor="login-pass">Password:</label>
                     <input 
                         type="password" 
                         id="login-password" 

@@ -6,19 +6,19 @@ export default function useForm(submitHander, initialVlues) {
     const onChange = (e) => {
         setValues(currentValues => ({
             ...currentValues,
-            [e.currentTarget.name]: e.currentTarget.value
+            [e.target.name]: e.target.value
         }))
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
 
-        submitHander()
+        submitHander(values)
     }
 
-    return {
+    return [
         values,
         onChange,
         onSubmit
-    }
+    ]
 }
