@@ -1,10 +1,14 @@
+import { useContext } from 'react'
 import useForm from '../../hooks/useForm'
+import { AuthContext } from '../../contexts/authContext'
 
-const Login = ({loginSubmitHandler}) => {
+const Login = () => {
     const [values, onChange, onSubmit] = useForm(loginSubmitHandler, {
         email: '',
         password: ''
     })
+
+    const {loginSubmitHandler} = useContext(AuthContext)
 
     return (
         // <!-- Login Page ( Only for Guest users ) -->
