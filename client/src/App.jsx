@@ -8,7 +8,7 @@ import Register from './components/register/Register'
 import GameDetails from './components/gameDetails/GameDetails';
 import { useState } from 'react';
 import { AuthContext } from './contexts/authContext';
-import { login } from './services/authServices';
+import { login, register } from './services/authServices';
 
 function App() {
 	const navigate = useNavigate()
@@ -22,7 +22,10 @@ function App() {
 	}
 
 	const registerSubmitHandler = async (values) => {
-		console.log(values)
+		let result = await register(values)
+		setAuth(result)
+
+		navigate('/')
 	}
 
 	const valuesContext = {
