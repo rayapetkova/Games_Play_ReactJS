@@ -31,7 +31,7 @@ function App() {
 	const valuesContext = {
 		loginSubmitHandler,
 		registerSubmitHandler,
-		username: auth.username,
+		username: auth.username ? auth.username : auth.email,
 		email: auth.email,
 		isAuthenticated: auth.email ? true : false
 	}
