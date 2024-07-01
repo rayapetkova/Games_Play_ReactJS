@@ -25,3 +25,20 @@ export async function register(data) {
     let result = response.json()
     return result
 }
+
+
+export async function logout() {
+    let response = await fetch(`${baseUrl}/logout`, {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+    })
+
+    if (response.status === 204) {
+        return {}
+    }
+
+    let result = response.json()
+    return result.json()
+}

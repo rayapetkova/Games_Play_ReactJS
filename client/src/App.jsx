@@ -9,6 +9,7 @@ import GameDetails from './components/gameDetails/GameDetails';
 import { useState } from 'react';
 import { AuthContext } from './contexts/authContext';
 import { login, register } from './services/authServices';
+import Logout from './components/logout/Logout';
 
 function App() {
 	const navigate = useNavigate()
@@ -28,9 +29,15 @@ function App() {
 		navigate('/')
 	}
 
+	const logoutHandler = () => {
+		setAuth({})
+		navigate('/')
+	}
+
 	const valuesContext = {
 		loginSubmitHandler,
 		registerSubmitHandler,
+		logoutHandler,
 		username: auth.username ? auth.username : auth.email,
 		email: auth.email,
 		isAuthenticated: auth.email ? true : false
@@ -46,6 +53,7 @@ function App() {
 					<Route path='/games' element={<GameListCatalog />} />
 					<Route path='/games/create' element={<GameCreate />} />
 					<Route path='/login' element={<Login />} />
+					<Route path='/logout' element={<Logout />} />
 					<Route path='/register' element={<Register />} />
 					<Route path='/games/:id' element={<GameDetails />} />
 				</Routes>

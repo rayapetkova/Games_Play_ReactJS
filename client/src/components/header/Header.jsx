@@ -17,7 +17,7 @@ const Header = () => {
                 {isAuthenticated ? (
                    <div id="user">
                         <Link to="/games/create">Create Game</Link>
-                        <Link to="#">Logout</Link>
+                        <Link to="/logout">Logout</Link>
                         <span> | {email}</span>
                     </div> 
                 ) : (
