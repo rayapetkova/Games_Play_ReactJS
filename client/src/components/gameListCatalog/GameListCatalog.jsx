@@ -8,7 +8,7 @@ const GameListCatalog = () => {
     useEffect(() => {
         async function loadGames() {
             let result = await getGames()
-            setGames(Object.values(result))
+            setGames(result)
         }
 
         loadGames()
