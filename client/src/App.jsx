@@ -13,11 +13,17 @@ import Logout from './components/logout/Logout';
 
 function App() {
 	const navigate = useNavigate()
-	const [auth, setAuth] = useState({})
+	const [auth, setAuth] = useState(() => {
+		localStorage.removeItem('accessToken')
+
+		return {}
+	})
 
 	const loginSubmitHandler = async (values) => {
 		let result = await login(values)
 		setAuth(result)
+
+		localStorage.setItem('accessToken', result.accessToken)
 
 		navigate('/')
 	}
@@ -26,11 +32,16 @@ function App() {
 		let result = await register(values)
 		setAuth(result)
 
+		localStorage.setItem('accessToken', result.accessToken)
+
 		navigate('/')
 	}
 
 	const logoutHandler = () => {
 		setAuth({})
+
+		localStorage.removeItem('accessToken')
+
 		navigate('/')
 	}
 
