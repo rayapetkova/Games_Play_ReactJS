@@ -1,13 +1,22 @@
-const baseUrl = 'http://localhost:3030/jsonstore'
+const baseUrl = 'http://localhost:3030/data'
 
 export async function createGame(data) {
+    let headers = {
+        'content-type': 'application/json'
+    }
+
+    const token = localStorage.getItem('accessToken')
+    if (token) {
+        headers['X-Authorization'] = token
+    }
+
     await fetch(`${baseUrl}/games`, {
         method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
+        headers: headers,
         body: JSON.stringify(data)
     })
+
+
 }
 
 export async function getGames() {
